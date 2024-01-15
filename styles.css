@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#calc {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    gap: 20px;
+}
+
+#screen {
+    border: 2px solid black;
+    width: 400px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: end;
+}
+
+#keypad {
+    border: 2px solid black;
+    width: 400px;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.key {
+    border: 2px solid black;
+    width: 80px;
+    height: 80px;
+    margin: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+}
+
+#hist {
+    font-size: 30px;
+}
+
+#curr {
+    font-size: 50px;
+}
