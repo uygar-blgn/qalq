@@ -1,4 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+* {
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
 body {
+    background-color: rgb(93, 72, 40);
+    background-image: url('wood.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     margin: 0;
     height: 100vh;
     display: flex;
@@ -6,51 +18,90 @@ body {
     align-items: center;
 }
 
+button {
+    color: aliceblue;
+    background-color: gray;
+}
+button:hover {
+    background-color: rgb(108, 108, 108);
+}
+button:active {
+    background-color: rgb(88, 88, 88);
+}
+
+button.op {
+    color: aliceblue;
+    background-color: rgb(218, 112, 55);
+}
+button.op:hover {
+    background-color: rgb(198, 92, 35);
+}
+button.op:active {
+    background-color: rgb(178, 72, 15);
+}
+
+button.clr {
+    color: aliceblue;
+    background-color: rgb(19, 74, 161);
+}
+button.clr:hover {
+    background-color: rgb(0, 54, 141);
+}
+button.clr:active {
+    background-color: rgb(0, 34, 121);
+}
+
 #calc {
-    border: 2px solid black;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 30px;
     gap: 20px;
+    background-color: crimson;
 }
 
 #screen {
-    border: 2px solid black;
     width: 400px;
     height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     text-align: end;
+    background-color: rgb(60, 60, 60);
+    color: aliceblue;
 }
 
 #keypad {
-    border: 2px solid black;
     width: 400px;
     height: 500px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    background-color: rgb(160, 5, 25);
 }
 
 .key {
-    border: 2px solid black;
+    border: 2px hidden black;
     width: 80px;
     height: 80px;
     margin: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 50px;
 }
 
 #hist {
-    font-size: 30px;
+    font-size: 25px;
+    margin-right: 10px;
 }
 
 #curr {
     font-size: 50px;
+    margin-right: 10px;
+}
+
+.clr {
+    width: 160px;
 }
