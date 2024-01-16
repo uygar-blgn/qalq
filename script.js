@@ -28,6 +28,13 @@ let buf = []
 
 ops.forEach((elt) => {
     elt.addEventListener('click', () => {
+        if(buf[buf.length - 2] == '.') {
+            let second = buf.pop()
+            buf.pop()
+            let first = buf.pop()
+            buf.push(parseFloat(first + '.' + second))
+        }
+
         if(buf[0] == '=') {
             const result = buf[1]
             buf = [result, elt.textContent]
@@ -61,7 +68,11 @@ ops.forEach((elt) => {
 
 nums.forEach((elt) => {
     elt.addEventListener('click', () => {
-        if(elt.textContent == '0' && (buf.length == 0 || buf[buf.length - 1] == '0' || buf[0] == '=')) {
+        if(buf[buf.length - 1] == '.') {
+            buf.push(elt.textContent)
+            curr.textContent += elt.textContent
+        }
+        else if(elt.textContent == '0' && (buf.length == 0 || buf[buf.length - 1] == '0' || buf[0] == '=')) {
             buf = []
             hist.textContent = ''
             curr.textContent = '0'
@@ -73,10 +84,21 @@ nums.forEach((elt) => {
             curr.textContent = elt.textContent
         }
         else if(!isNaN(buf[buf.length - 1])) {
+            let hasDec = false
+            curr.textContent.split('').forEach((elt) => {
+                if(elt == '.') {
+                    hasDec = true
+                }
+            })
             let lastNum = buf.pop()
             lastNum += elt.textContent
             buf.push(lastNum)
-            curr.textContent = lastNum             
+            if(hasDec) {
+                curr.textContent = buf[buf.length - 3] + '.' + lastNum
+            }
+            else {
+                curr.textContent = lastNum
+            }             
         }
         else if(buf[buf.length - 1] == '+' || buf[buf.length - 1] == '-' || buf[buf.length - 1] == '*' || buf[buf.length - 1] == '/') {
             buf.push(elt.textContent)
@@ -86,6 +108,13 @@ nums.forEach((elt) => {
 })
 
 eq.addEventListener('click', () => {
+    if(buf[buf.length - 2] == '.') {
+        let second = buf.pop()
+        buf.pop()
+        let first = buf.pop()
+        buf.push(first + '.' + second)
+    }
+
     if(buf[buf.length - 2] == '+' || buf[buf.length - 2] == '-' || buf[buf.length - 2] == '*' || buf[buf.length - 2] == '/') {
         const result = operate(buf[buf.length - 3], buf[buf.length - 1], buf[buf.length - 2])
         hist.textContent += ' ' + buf[buf.length - 1] + ' = ' + result
@@ -114,8 +143,30 @@ c.addEventListener('click', () => {
             curr.textContent = now
         }
     }
+    else if(num == '.') {
+        buf.pop()
+        curr.textContent = curr.textContent.slice(0, curr.textContent.length - 1)
+        if(buf[0] == '0') {
+            buf.pop()
+        }
+    }
 })
 
 dec.addEventListener('click', () => {
-    // TODO
+    let hasDec = false
+    curr.textContent.split('').forEach((elt) => {
+        if(elt == '.') {
+            hasDec = true
+        }
+    })
+    if(hasDec) {}
+    else if(buf.length == 0 || buf[0] == '=') {
+        buf.push('0')
+        buf.push('.')
+        curr.textContent = '0.'
+    }
+    else if(!isNaN(buf[buf.length - 1])) {
+        buf.push('.')
+        curr.textContent += '.'
+    }
 })
