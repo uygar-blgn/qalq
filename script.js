@@ -161,6 +161,7 @@ dec.addEventListener('click', () => {
     })
     if(hasDec) {}
     else if(buf.length == 0 || buf[0] == '=') {
+        buf = []
         buf.push('0')
         buf.push('.')
         curr.textContent = '0.'
