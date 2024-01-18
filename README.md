@@ -1,3 +1,3 @@
 Basic calculator made in plain Javascript.
 
-live preview at [uygar-blgn.github.io/qalq](uygar-blgn.github.io/qalq)
+live preview at [https://uygar-blgn.github.io/qalq](https://uygar-blgn.github.io/qalq)
