@@ -165,6 +165,7 @@ dec.addEventListener('click', () => {
         buf.push('0')
         buf.push('.')
         curr.textContent = '0.'
+        hist.textContent = ''
     }
     else if(!isNaN(buf[buf.length - 1])) {
         buf.push('.')
